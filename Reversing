@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace ReversedNum
+{
+    class Reversed
+    {
+        
+        static void Main(string[] args)
+        {
+            double num = double.Parse(Console.ReadLine());
+            Console.WriteLine(ReversedNUM(num));
+
+        }
+        static double ReversedNUM(double num)
+        {
+            bool isNegative = num < 0;
+            num = Math.Abs(num);
+            string str = num.ToString();
+            str = GetString(str);
+            double number = double.Parse(str);
+            return isNegative ? -number : number;
+            
+        }
+        static string GetString(string str)
+        {
+            if (str == null)
+            
+                return "";
+            
+            char[] numberChar = str.ToCharArray();
+            Array.Reverse(numberChar);
+            return  new string (numberChar);
+
+        }
+    }
+}
