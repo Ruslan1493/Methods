@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FirstLarger_4
+{
+    class FirstLarger_4
+    {
+        static int[] arr;
+
+        static void Main()
+        {
+            string input = Console.ReadLine();
+            arr = input.Split().Select(int.Parse).ToArray();
+            bool isLarger = false;
+            int index = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (GetIndex(i))
+                {
+                    index = i;
+                    isLarger = true;
+                    break;
+                }
+                
+            }
+            if (isLarger)
+            {
+                Console.WriteLine(index);
+            }
+            else
+            {
+                Console.WriteLine(-1);
+            }
+        }
+
+        static bool GetIndex(int i)
+        {
+            bool IsLarger = false;
+
+            if (i == 0)
+            {
+                IsLarger = arr[i] > arr[i + 1];
+
+            }
+            else if (i < arr.Length - 1)
+            {
+                IsLarger = arr[i] > arr[i - 1] && arr[i] > arr[i + 1];
+            }
+            
+            return IsLarger;
+        }
+
+
+
+    }
+}
